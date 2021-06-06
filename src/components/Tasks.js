@@ -1,3 +1,4 @@
+import Typography from "@material-ui/core/Typography";
 import React, { Component } from "react";
 
 export default class Tasks extends Component {
@@ -5,7 +6,9 @@ export default class Tasks extends Component {
     return (
       <>
         {this.props.listItem.map((task) => (
-          <h3 key={task.id}>{task.text}</h3>
+          <Typography variant="body1" key={task.id}>
+            {task.text}
+          </Typography>
         ))}
       </>
     );

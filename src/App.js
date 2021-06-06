@@ -27,10 +27,26 @@ export default class App extends Component {
     ],
   };
 
+  handlePushNewTasks = () => {
+    const newStuff = {
+      id: 5,
+      text: "New Tasks",
+      day: "Feb 5th at 11.30pm",
+      reminder: false,
+    };
+
+    const newTaskList = this.state.tasks;
+    newTaskList.push(newStuff);
+
+    this.setState({
+      tasks: newTaskList,
+    });
+  };
+
   render() {
     return (
       <Card className="container">
-        <Header />
+        <Header handlePushNewTasks={this.handlePushNewTasks} />
         <Tasks listItem={this.state.tasks} />
       </Card>
     );

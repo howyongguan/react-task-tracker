@@ -8,7 +8,11 @@ export default class Header extends Component {
     return (
       <header className="header">
         <Typography variant="h4">Task Records</Typography>
-        <Button variant="contained" color="primary">
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={this.props.handlePushNewTasks}
+        >
           Add
         </Button>
       </header>
