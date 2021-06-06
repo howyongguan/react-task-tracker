@@ -1,3 +1,4 @@
+import Card from "@material-ui/core/Card";
 import React, { Component } from "react";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
@@ -28,10 +29,10 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="container">
+      <Card className="container">
         <Header />
         <Tasks listItem={this.state.tasks} />
-      </div>
+      </Card>
     );
   }
 }

@@ -1,30 +1,17 @@
-import PropTypes from 'prop-types'
-import Button from './Button'
+// import Button from "./Button";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import React, { Component } from "react";
 
-const Header = ({title}) => {
+export default class Header extends Component {
+  render() {
     return (
-        <header className='header'>
-            <h1>{title}</h1>
-            <Button color='green' text='Add' />
-           
-        </header>
-    )
+      <header className="header">
+        <Typography variant="h4">Task Records</Typography>
+        <Button variant="contained" color="primary">
+          Add
+        </Button>
+      </header>
+    );
+  }
 }
-
- Header.defaultProps ={
-     title: 'Task Tracker ',
-
- }
-
-
-
- Header.propTypes={
-    title: PropTypes.string.isRequired,
-}
-
-// CSS in JS
-// const headingStyle={
-//     color: 'red',
-//     backgroundColor:'black'}
-
-export default Header
