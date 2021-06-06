@@ -11,7 +11,10 @@ export default class Header extends Component {
         <Button
           variant="contained"
           color="primary"
-          onClick={this.props.handlePushNewTasks}
+          onClick={this.props.handlePushNewTasks.bind(
+            this,
+            Math.floor(Math.random() * 10)
+          )}
         >
           Add
         </Button>

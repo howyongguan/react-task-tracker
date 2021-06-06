@@ -27,10 +27,10 @@ export default class App extends Component {
     ],
   };
 
-  handlePushNewTasks = () => {
+  handlePushNewTasks = (index) => {
     const newStuff = {
       id: 5,
-      text: "New Tasks",
+      text: `New Tasks ${index}`,
       day: "Feb 5th at 11.30pm",
       reminder: false,
     };
