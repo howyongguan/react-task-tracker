@@ -1,11 +1,13 @@
-const Tasks = ({tasks}) => {
-  return (
-    <>
-      {tasks.map((task) => (
-        <h3 key={task.id}>{task.text}</h3>
-      ))}
-    </>
-  )
-}
+import React, { Component } from "react";
 
-export default Tasks
+export default class Tasks extends Component {
+  render() {
+    return (
+      <>
+        {this.props.listItem.map((task) => (
+          <h3 key={task.id}>{task.text}</h3>
+        ))}
+      </>
+    );
+  }
+}
