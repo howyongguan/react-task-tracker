@@ -1,22 +1,34 @@
 import PropTypes from 'prop-types'
-import Button from './Button'
+// import Button from './Button'
+import Button from "@material-ui/core/Button"
+import Typography from '@material-ui/core/Typography';
+import React, {Component} from 'react';
 
-const Header = ({title}) => {
-    return (
+
+export default class Header extends Component{
+    render(){
+        return(
         <header className='header'>
-            <h1>{title}</h1>
-            <Button color='green' text='Add' />
-           
-        </header>
-    )
+        <Typography variant="h4" gutterBottom>
+        {this.props.title}
+        </Typography>
+       <Button variant="contained" color="secondary" 
+       onClick={this.props.handlePushNewTasks}
+       >
+           Add
+       </Button>
+    </header>
+
+        )
+
+    }
 }
 
+
  Header.defaultProps ={
-     title: 'Task Tracker ',
+     title: 'Task Tracker',
 
  }
-
-
 
  Header.propTypes={
     title: PropTypes.string.isRequired,
@@ -27,4 +39,4 @@ const Header = ({title}) => {
 //     color: 'red',
 //     backgroundColor:'black'}
 
-export default Header
+
