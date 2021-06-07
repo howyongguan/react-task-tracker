@@ -28,11 +28,11 @@ export default class App extends Component {
     ],
   };
 
-  handlePushNewTasks = () => {
+  handlePushNewTasks = (taskTitle, taskDate) => {
     const newStuff = {
-      id: 4,
-      text: "New Car wash ",
-      day: "Feb 3th at 1.30pm",
+      id: taskTitle,
+      text: taskTitle,
+      day: taskDate,
       reminder: true,
     };
     const newTaskList = this.state.tasks;
@@ -57,8 +57,11 @@ export default class App extends Component {
   render() {
     return (
       <Card className="container">
-        {<Header handlePushNewTasks={this.handlePushNewTasks} />}
-        <AddTask onAdd={this.state.addTask} />
+        {<Header />}
+        <AddTask
+          onAdd={this.state.addTask}
+          handlePushNewTasks={this.handlePushNewTasks}
+        />
         <Tasks tasks={this.state.tasks} onDelete={this.state.deleteTask} />
 
         {/* <Tasks tasks={this.state.tasks} /> */}

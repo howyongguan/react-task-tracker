@@ -1,61 +1,56 @@
-import {useState} from 'react'
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import React, { Component } from "react";
 
+export default class AddTask extends Component {
+  state = {
+    taskName: "",
+    taskDate: "",
+  };
 
-const AddTask =({ onAdd})=>{
-    const [text, setText]= useState('')
-    const [day, setDay]= useState('')
-    const [reminder, setReminder]= useState(false)
+  handleTaskName = (e) => {
+    this.setState({
+      taskName: e.target.value,
+    });
+  };
 
+  handleTaskDate = (e) => {
+    this.setState({
+      taskDate: e.target.value,
+    });
+  };
 
-const onSubmit=(e)=>{
-    e.preventDefailt()
-    if(!Text) {
-        alert('Please add a task')
-        return
-    }
-    onAdd(text,day,reminder)
+  handleAddTasks = () => {
+    window.alert(this.state.taskName);
+  };
 
-    setText('  ')
-    setDay('  ')
-    setReminder(false)
+  render() {
+    return (
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <TextField
+          label="Task Name"
+          value={this.state.taskName}
+          onChange={this.handleTaskName}
+        />
+        <TextField
+          style={{ margin: "10px 0px" }}
+          value={this.state.taskDate}
+          onChange={this.handleTaskDate}
+          label="Task Date"
+        />
+        <Button
+          style={{ margin: "20px 0px" }}
+          variant="contained"
+          color="secondary"
+          onClick={this.props.handlePushNewTasks.bind(
+            this,
+            this.state.taskName,
+            this.state.taskDate
+          )}
+        >
+          Add
+        </Button>
+      </div>
+    );
+  }
 }
-
-return(
-<form className='add-form' onSubmit={onSubmit}>
-    <div className='form-control'>
-        <label>Task</label>
-        <input type='text' placeholder='Add
-        Task' value={text} onChange={(e)=>setText(e.target.value)}
-        
-        />
-    </div>
-
-    <div className='form-control'>
-        <label>Day n Time</label>
-        <input type='text' placeholder='Add Day n Time'
-        value={day} onChange={(e)=>setDay(e.target.value)}
-        />
-    </div>
-
-    <div className='form-control
-    form-control-check'>
-        <label>Set Reminder</label>
-        <input type='checkbox'
-        checked={reminder}
-        value={reminder} onChange={(e)=>setReminder(e.currentTarget.checked)}
-        />
-    </div>
-
-    <input type='submit' value='Save'
-    className='btn btn-block'
-    
-    />
-
-   
-    
-</form>
-
-)
-
-}
-export default AddTask 
