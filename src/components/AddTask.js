@@ -20,10 +20,6 @@ export default class AddTask extends Component {
     });
   };
 
-  handleAddTasks = () => {
-    window.alert(this.state.taskName);
-  };
-
   render() {
     return (
       <div style={{ display: "flex", flexDirection: "column" }}>
