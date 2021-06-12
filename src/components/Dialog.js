@@ -4,46 +4,59 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import React from "react";
+import React, { Component } from "react";
+import AddTask from "../components/AddTask";
 
-export default function FormDialog({ children }) {
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
+export default class FormDialog extends Component {
+  state = {
+    open: false,
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  handleDialog = (bool) => {
+    this.setState({
+      open: bool,
+    });
   };
 
-  return (
-    <div>
-      <Button variant="contained" color="secondary" onClick={handleClickOpen}>
-        Add Tasks
-      </Button>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="form-dialog-title"
-      >
-        <DialogTitle id="form-dialog-title">Task</DialogTitle>
-        <DialogContent>
-          <DialogContentText>please enter your task and date</DialogContentText>
+  handlePushNewTask = (name, date) => {
+    this.props.handlePushNewTask(name, date);
+    this.handleDialog(false);
+  };
 
-          {children}
-        </DialogContent>
-        <DialogActions>
-          <Button
-            style={{ margin: "0px 100px" }}
-            variant="contained"
-            color="secondary"
-            onClick={handleClose}
-          >
-            Close
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </div>
-  );
+  render() {
+    return (
+      <div>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={this.handleDialog.bind(this, true)}
+        >
+          Add Tasks
+        </Button>
+        <Dialog
+          open={this.state.open}
+          onClose={this.handleDialog.bind(this, false)}
+          aria-labelledby="form-dialog-title"
+        >
+          <DialogTitle id="form-dialog-title">Task</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              Please enter your task and date
+            </DialogContentText>
+            <AddTask handlePushNewTask={this.handlePushNewTask} />
+          </DialogContent>
+          <DialogActions>
+            <Button
+              style={{ margin: "0px 100px" }}
+              variant="contained"
+              color="secondary"
+              onClick={this.handleDialog.bind(this, false)}
+            >
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </div>
+    );
+  }
 }

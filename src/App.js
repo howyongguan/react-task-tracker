@@ -1,6 +1,5 @@
 import Card from "@material-ui/core/Card";
 import React, { Component } from "react";
-import AddTask from "./components/AddTask";
 import FormDialog from "./components/Dialog";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
@@ -30,7 +29,7 @@ export default class App extends Component {
     ],
   };
 
-  handlePushNewTasks = (taskTitle, taskDate) => {
+  handlePushNewTask = (taskTitle, taskDate) => {
     const newStuff = {
       id: taskTitle,
       text: taskTitle,
@@ -49,13 +48,7 @@ export default class App extends Component {
     return (
       <Card className="container">
         <Header />
-        <FormDialog>
-          <AddTask
-            onAdd={this.state.addTask}
-            handlePushNewTasks={this.handlePushNewTasks}
-          />
-        </FormDialog>
-
+        <FormDialog handlePushNewTask={this.handlePushNewTask} />
         <Tasks tasks={this.state.tasks} />
       </Card>
     );

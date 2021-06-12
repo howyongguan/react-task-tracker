@@ -38,7 +38,7 @@ export default class AddTask extends Component {
           style={{ margin: "20px 0px" }}
           variant="contained"
           color="secondary"
-          onClick={this.props.handlePushNewTasks.bind(
+          onClick={this.props.handlePushNewTask.bind(
             this,
             this.state.taskName,
             this.state.taskDate
