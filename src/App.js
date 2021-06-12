@@ -48,7 +48,7 @@ export default class App extends Component {
   render() {
     return (
       <Card className="container">
-        {<Header />}
+        <Header />
         <FormDialog>
           <AddTask
             onAdd={this.state.addTask}
