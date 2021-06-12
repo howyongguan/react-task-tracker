@@ -1,7 +1,7 @@
 import Card from "@material-ui/core/Card";
 import React, { Component } from "react";
 import AddTask from "./components/AddTask";
-import FormDialog from "./components/dialog";
+import FormDialog from "./components/Dialog";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 

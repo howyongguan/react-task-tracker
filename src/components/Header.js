@@ -9,13 +9,6 @@ export default class Header extends Component {
         <Typography variant="h4" gutterBottom>
           {this.props.title}
         </Typography>
-        {/* <Button
-          variant="contained"
-          color="secondary"
-          onClick={this.props.handlePushNewTasks}
-        >
-          Add task
-        </Button> */}
       </header>
     );
   }
@@ -28,8 +21,3 @@ Header.defaultProps = {
 Header.propTypes = {
   title: PropTypes.string.isRequired,
 };
-
-// CSS in JS
-// const headingStyle={
-//     color: 'red',
-//     backgroundColor:'black'}
