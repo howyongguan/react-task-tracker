@@ -1,5 +1,3 @@
-// import Button from './Button'
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
@@ -11,13 +9,13 @@ export default class Header extends Component {
         <Typography variant="h4" gutterBottom>
           {this.props.title}
         </Typography>
-        <Button
+        {/* <Button
           variant="contained"
           color="secondary"
           onClick={this.props.handlePushNewTasks}
         >
-          Add
-        </Button>
+          Add task
+        </Button> */}
       </header>
     );
   }

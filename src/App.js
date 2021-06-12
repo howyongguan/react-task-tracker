@@ -1,6 +1,7 @@
 import Card from "@material-ui/core/Card";
 import React, { Component } from "react";
 import AddTask from "./components/AddTask";
+import FormDialog from "./components/dialog";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 
@@ -19,6 +20,7 @@ export default class App extends Component {
         day: "Feb 6th at 1.30pm",
         reminder: true,
       },
+
       {
         id: 3,
         text: "Food Shopping ",
@@ -43,28 +45,18 @@ export default class App extends Component {
     });
   };
 
-  //Add Task
-  addTask = (task) => {
-    console.log(task);
-  };
-
-  //delete task
-
-  deleteTask = (id) => {
-    console.log("delete", id);
-  };
-
   render() {
     return (
       <Card className="container">
         {<Header />}
-        <AddTask
-          onAdd={this.state.addTask}
-          handlePushNewTasks={this.handlePushNewTasks}
-        />
-        <Tasks tasks={this.state.tasks} onDelete={this.state.deleteTask} />
+        <FormDialog>
+          <AddTask
+            onAdd={this.state.addTask}
+            handlePushNewTasks={this.handlePushNewTasks}
+          />
+        </FormDialog>
 
-        {/* <Tasks tasks={this.state.tasks} /> */}
+        <Tasks tasks={this.state.tasks} />
       </Card>
     );
   }

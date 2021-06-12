@@ -48,7 +48,7 @@ export default class AddTask extends Component {
             this.state.taskDate
           )}
         >
-          Add
+          ADD
         </Button>
       </div>
     );
